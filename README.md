@@ -30,5 +30,11 @@ Clone the project you want as a mirror.
 git clone --mirror https://github.com/<owner>/<repo>
 ```
 
+Sync the repo.
+
+```
+curl http://localhost:8124/<repo>.git
+```
+
 
 
