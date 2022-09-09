@@ -3,7 +3,7 @@ services:
   web:
     restart: always
     build: ./
-    tty: true
+    command: /go/bin/gitmirror  -git=/usr/bin/git -dir=/usr/local/git-mirrors
     volumes:
       - turbosrc-git-service-mirrors:/usr/local/git-mirrors
 
