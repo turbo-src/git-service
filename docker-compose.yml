@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  web:
+    restart: always
+    build: ./
+    tty: true
+    volumes:
+      - turbosrc-git-service-mirrors:/usr/local/git-mirrors
+
+volumes:
+  turbosrc-git-service-mirrors:
+    external: true
