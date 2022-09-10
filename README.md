@@ -226,4 +226,9 @@ process = subprocess.Popen(["your_cmd"]...)
 process.wait()
 ```
 https://stackoverflow.com/questions/28284715/python-subprocess-popen-wait-for-completion
+
+How to git fetch and checkout without creating a remote branch locally?
 ```
+git fetch git://github.com/xxx/xxx.git branch_name && git merge FETCH_HEAD
+```
+https://stackoverflow.com/questions/10200307/how-to-git-fetch-and-checkout-without-creating-a-remote-branch-locally
