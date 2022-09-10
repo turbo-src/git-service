@@ -1,5 +1,6 @@
 Small change
 Another small change
+And another
 Rapid experiment to deploy a git service.
 
 # Setup
