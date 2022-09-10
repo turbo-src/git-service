@@ -38,9 +38,94 @@ curl http://localhost:8124/<repo>.git
 
 # Notes
 
+## Story
+
+User tokenizes.
+   Repo is created. RepoID generated. Tokens created.
+User visits Github page
+   verifyRepo
+   if not verified, 
+User transfers tokens.
+   verifyRepo
+   transfer if verification succeeds.
+   
+Users vote to merge
+   implicit verification
+
+## Pseudocode
+Repo:
+  $repoID-$branch:
+     $branch,
+     $head,
+     $defaultHash
+
+fn removeMirror
+
+fn mirrorExists
+
+fn verifyBranch
+
+fn verifyRepo
+
+var expectedHead (must come from Turbosrc service)
+
+var baseBranchLastPR (must come from Turbosrc service)
+var repoID (must come from Turbosrc service
+
+# If branch is in conflict (unauthorized pushed commits), then it is rebased to 
+postVerifyRepo(repoID, baseBranchLastPR)
+  verifyRepo(repoID, baseBranchLastPR)
+
+# If branch is in conflict (unauthorized pushed commits), then it is rebased to   
+postVerifyBranch(repoID, branch, expectedHead)
+  expectedHead = getHead(branch)
+  if !verifyBranch(repoID, baseBaseBranchLastPR, expectedHead)
+     rebaseBranch(repoID, baseBranch
+
+verifyBranch(repoID, branch)
+   attempts = 0
+   while attempts <= 4 // Takes 4 attempts to exhaust all conditional branches.
+     if !mirrorExists(repoID)
+        syncMirror(repoID)
+	++attempts
+        verifyBranch(repoID, branch)
+     if checkMirrorBranchHead(repoID, branch)
+       if checkMirrorBranchDefaultHash(repoID, branch, expectedHead)
+         return true
+        else
+	  ++attempts
+          syncMirror(repoID, branch)
+	  verifyBranch(repoID, branch, expectedHead)
+     else
+       # use -D flag on gitmirror's curl command when on wait()
+       syncMirror(repoID)
+       ++attempts
+       verifyBranch(repoID, branch, expectedHead)
+    return false
+       
+checkMirrorBranchDefaultHash(repoID, branch, expectedHead)
+   if getDefaultHash(repoID, branch) == expectedHead
+      return true
+   else
+      return false
+
+checkMirrorBranchHead(repoID, branch, expectedHead)
+   if getHead(repoID, branch) == expectedHead
+      return true
+   else
+      return false
+
+addBranch(repoID, branch)
+
+getDefaultHash(repoID, branch)
+   queryDefaultHash(repoID, branch)
+   
+
+getHead(repoID, branch)
+   queryHead(repoID, branch)
+
 Pseudocode for endpoints.
 
-```
 import subprocess
 
 repoSchema:
@@ -141,3 +226,4 @@ process = subprocess.Popen(["your_cmd"]...)
 process.wait()
 ```
 https://stackoverflow.com/questions/28284715/python-subprocess-popen-wait-for-completion
+```
