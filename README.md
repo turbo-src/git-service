@@ -232,3 +232,9 @@ How to git fetch and checkout without creating a remote branch locally?
 git fetch git://github.com/xxx/xxx.git branch_name && git merge FETCH_HEAD
 ```
 https://stackoverflow.com/questions/10200307/how-to-git-fetch-and-checkout-without-creating-a-remote-branch-locally
+	
+Dry run a git merge
+	
+```
+git merge --no-commit --no-ff $BRANCH
+```
