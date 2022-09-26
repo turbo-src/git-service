@@ -18,6 +18,6 @@ RUN npm install --save-dev -y dotenv --prefix /usr/local/
 
 COPY . .
 
-EXPOSE 4004/tcp
+EXPOSE 4005/tcp
 
 CMD npm start

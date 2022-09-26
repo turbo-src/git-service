@@ -6,10 +6,12 @@ services:
     depends_on:
       - db
     ports:
-      - 4004:4004
+      - 4005:4005
     expose:
-      - "4004"
+      - "4005"
     build: ./
+    volumes:
+      - ./:/project
     environment:
       DOCKER_DB_URL: postgresql://user:password@db:5432/git-service
     tty: true

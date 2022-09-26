@@ -4,7 +4,7 @@ require("dotenv").config();
 const port =
   process.env.NODE_ENV === "fly"
     ? "https://namespace-db.fly.dev"
-    : "http://localhost:4004";
+    : "http://localhost:4005";
 
 var root = {
   postCreateIssue: async (
