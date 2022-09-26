@@ -1,12 +1,30 @@
-version: '3.6'
+version: "3.0"
+
 services:
-  web:
-    restart: always
+  service:
+    image: gh-service:latest
+    depends_on:
+      - db
+    ports:
+      - 4004:4004
+    expose:
+      - "4004"
     build: ./
-    command: /go/bin/gitmirror  -git=/usr/bin/git -dir=/usr/local/git-mirrors
+    environment:
+      DOCKER_DB_URL: postgresql://user:password@db:5432/gh-service
+    tty: true
+
+  db:
+    image: postgres:13.7-bullseye
+    restart: always
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: gh-service
     volumes:
-      - turbosrc-git-service-mirrors:/usr/local/git-mirrors
+      - db-data:/db-data/
 
 volumes:
-  turbosrc-git-service-mirrors:
-    external: true
+  db-data:
