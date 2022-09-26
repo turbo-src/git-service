@@ -1,9 +1,9 @@
 # Usage
 
-### Build gh-service
+### Build git-service
 
 ```
-docker build -t gh-service:latest .
+docker build -t git-service:latest .
 ```
 
 ### Pull postgres image if needed.
@@ -24,7 +24,7 @@ docker-compose up --build
 Enter bash or shell session in service container
 
 ```
-docker exec -it gh-service-service bash
+docker exec -it git-service-service bash
 ```
 
 Run tests.

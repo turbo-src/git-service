@@ -2,7 +2,7 @@ version: "3.0"
 
 services:
   service:
-    image: gh-service:latest
+    image: git-service:latest
     depends_on:
       - db
     ports:
@@ -11,7 +11,7 @@ services:
       - "4004"
     build: ./
     environment:
-      DOCKER_DB_URL: postgresql://user:password@db:5432/gh-service
+      DOCKER_DB_URL: postgresql://user:password@db:5432/git-service
     tty: true
 
   db:
@@ -22,7 +22,7 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: gh-service
+      POSTGRES_DB: git-service
     volumes:
       - db-data:/db-data/
 
