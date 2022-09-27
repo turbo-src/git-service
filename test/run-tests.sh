@@ -1,1 +1,1 @@
-npm test test/cloneRepo.js test/checkIsRepo.js
+npm test test/cloneAndCheck.js
