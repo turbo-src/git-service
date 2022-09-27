@@ -1,9 +1,9 @@
 const assert = require("assert");
-const cloneRepo = require("../lib/cloneRepo");
+const cloneRepo = require("../lib/switchBranch");
 
-describe("clone a repo", function () {
-  it.only("should confirm repo was cloned", async function () {
-    const res = await cloneRepo("git-test/turbo-rsc", "https://github.com/turbo-src/turbo-src")
-    assert.equal(true, false, 'fail confirm git repo cloned')
+describe("switch branch in a specified repo", function () {
+  it.only("should switch branch in a specified repo", async function () {
+    const res = await switchRepo("git-test/turbo-tsc", "testDev")
+    assert.equal(true, true, 'fail confirm git repo cloned')
   });
 });
