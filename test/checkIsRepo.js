@@ -10,4 +10,8 @@ describe("check a repo", function () {
     const res = await checkIsRepo('git-test/nada')
     assert.deepEqual(res, { "status": 200, "state": false }, "fail confirm git repo doesn't exist")
   });
+  it("should confirm a dir doesn't exists", async function () {
+    const res = await checkIsRepo('git-test/not-a-dir')
+    assert.deepEqual(res, { "status": 200, "state": false }, "fail confirm git repo doesn't exist")
+  });
 });
