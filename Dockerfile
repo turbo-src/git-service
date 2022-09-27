@@ -16,6 +16,8 @@ RUN npm install --save-dev -y sequelize --prefix /usr/local/
 RUN npm install --save-dev -y pg pg-hstore --prefix /usr/local/
 RUN npm install --save-dev -y dotenv --prefix /usr/local/
 RUN npm install --save-dev -y simple-git --prefix /usr/local/
+RUN npm install --save-dev -y crypto-js@^4.1.1 --prefix /usr/local/
+RUN npm install --save-dev -y child_process@^1.0.2 --prefix /usr/local/
 
 COPY . .
 
