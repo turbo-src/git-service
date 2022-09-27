@@ -1,17 +1,21 @@
 const assert = require("assert");
 const checkIsRepo = require("../lib/checkIsRepo");
+const cloneRepo = require("../lib/cloneRepo");
 
 describe("check a repo", function () {
-  it.only("should confirm a repo exists", async function () {
-    const res = await checkIsRepo('git-test/turbo-src')
-    assert.deepEqual(res, { status: 200, state: true }, 'fail confirm git repo')
+  it("should confirm a repo exists", async function () {
+    const resBefore = await checkIsRepo('git-test/turbo-src')
+    //await cloneRepo("git-test/turbo-rsc", "https://github.com/turbo-src/turbo-src")
+    //const resAfter = await checkIsRepo('git-test/turbo-src')
+    assert.deepEqual(resBefore, { status: 400, state: false }, 'fail confirm git repo')
+    //assert.deepEqual(resAfter, { status: 200, state: true }, 'fail confirm git repo')
   });
   it("should confirm a repo doesn't exists", async function () {
-    const res = await checkIsRepo('git-test/nada')
+    const res = await checkIsRepo('git-test/not-git')
     assert.deepEqual(res, { "status": 200, "state": false }, "fail confirm git repo doesn't exist")
   });
   it("should confirm a dir doesn't exists", async function () {
-    const res = await checkIsRepo('git-test/not-a-dir')
-    assert.deepEqual(res, { "status": 200, "state": false }, "fail confirm git repo doesn't exist")
+    const res = await checkIsRepo('git-test/nada')
+    assert.deepEqual(res, { "status": 400, "state": false }, "fail confirm git repo doesn't exist")
   });
 });
