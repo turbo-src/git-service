@@ -62,7 +62,7 @@ const app = express();
 
 app.listen(port);
 console.log(
-  `Namespace Server: Running a GraphQL API server on port ${port}/graphql`
+  `Git Server: Running a GraphQL API server on port ${port}/graphql`
 );
 
 app.use(
