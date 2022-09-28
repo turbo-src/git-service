@@ -34,4 +34,20 @@ describe("hash a branch", function () {
       'fail to get hash of branch'
     )
   });
+  it("should hash branch of a non-turbosrc repo neovim at a specific branch", async function () {
+    this.timeout(7000)
+    const branch = "release-0.7"
+    const remoteURL = "https://github.com/neovim/neovim"
+    const remoteHashID = crypto.SHA256(remoteURL).toString(crypto.enc.Hex)
+    const resHashBranch = await hashBranch.getDefaultHashBranch(remoteHashID, remoteURL, branch)
+
+    assert.deepEqual(
+      resHashBranch,
+      {
+        status: 200,
+        defaultHash: 'fd1cc2d6865b9ae0ce5e9174f327a9b10d60ba7723d87628a546eaad8b9e8fad'
+      },
+      'fail to get hash of branch'
+    )
+  });
 });
