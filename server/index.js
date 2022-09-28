@@ -8,13 +8,13 @@ const {
   createIssue,
   getIssueID,
   getTsrcID,
-  hashBranch,
+  getDefaultHashBranch,
 } = require("../lib");
 
 var schema = buildSchema(`
-  type hashBranch {
-    status: String!,
-    defaultHash: String!,
+  type HashBranch {
+    status: Int!
+    defaultHash: String!
     validHead: Boolean!
   }
 
@@ -22,15 +22,15 @@ var schema = buildSchema(`
     createIssue(repo: String, issue_id: String, tsrc_id: String): String,
     getIssueID(repo: String, tsrc_id: String,): String,
     getTsrcID(repo: String, issue_id: String): String,
-    getDefaultHashBranch(repoID: String, remoteURL: String, branch: String, head: String): hashBranch,
+    getDefaultHashBranch(repo_id: String, remote_url: String, branch: String, head: String): HashBranch,
   }
 `);
 
 var root = {
   getDefaultHashBranch: async (args) => {
-    return await hashBranch.getDefaultHashBranch(
-      args.repoID,
-      args.remoteURL,
+    return await getDefaultHashBranch(
+      args.repo_id,
+      args.remote_url,
       args.branch,
       args.head
     );
