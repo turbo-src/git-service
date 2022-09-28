@@ -8,17 +8,33 @@ const {
   createIssue,
   getIssueID,
   getTsrcID,
+  hashBranch,
 } = require("../lib");
 
 var schema = buildSchema(`
+  type hashBranch {
+    status: String!,
+    defaultHash: String!,
+    validHead: Boolean!
+  }
+
   type Query {
     createIssue(repo: String, issue_id: String, tsrc_id: String): String,
     getIssueID(repo: String, tsrc_id: String,): String,
     getTsrcID(repo: String, issue_id: String): String,
+    getDefaultHashBranch(repoID: String, remoteURL: String, branch: String, head: String): hashBranch,
   }
 `);
 
 var root = {
+  getDefaultHashBranch: async (args) => {
+    return await hashBranch.getDefaultHashBranch(
+      args.repoID,
+      args.remoteURL,
+      args.branch,
+      args.head
+    );
+  },
   createIssue: async (args) => {
     return await createIssue(
       args.repo,

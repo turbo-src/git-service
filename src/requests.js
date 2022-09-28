@@ -7,6 +7,21 @@ const port =
     : "http://localhost:4005";
 
 var root = {
+  getDefaultHashBranch: async (
+    repo,
+    remoteURL,
+    branch,
+    head
+  ) => {
+  const res = await superagent
+      .post(`${port}/graphql`)
+      .send({
+	      query: `{ getDefaultHashBranch(repo: "${repo}", remoteURL: "${remoteURL}", branch: "${branch}", head: "${head}") }`,
+      })
+      .set("accept", "json")
+      const json = JSON.parse(res.text);
+      return json.data.getDefaultHashBranch;
+  },
   postCreateIssue: async (
     repo,
     issue_id,
