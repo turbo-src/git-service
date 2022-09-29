@@ -8,15 +8,16 @@ const port =
 
 var root = {
   getDefaultHashBranch: async (
-    repo_id,
-    remote_url,
-    branch,
-    head
+    repoID,
+    //remote_url,
+    //branch,
+    //head
   ) => {
   const res = await superagent
       .post(`${port}/graphql`)
       .send({
-        query: `{ getDefaultHashBranch(repo_id: "${repo_id}", remote_url: "${remote_url}", branch: "${branch}", head: "${head}") }`,
+        //query: `{ getDefaultHashBranch(repo_id: "${repo_id}", remote_url: "${remote_url}", branch: "${branch}", head: "${head}") }`,
+        query: `{ getDefaultHashBranch(repoID: "${repoID}") }`,
       })
       .set("accept", "json")
       const json = JSON.parse(res.text);
