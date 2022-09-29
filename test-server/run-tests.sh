@@ -1,1 +1,1 @@
-npm test test-server/hashBranch.js
+npm test test-server/getDefaultHashBranch.js
