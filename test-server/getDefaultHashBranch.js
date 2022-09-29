@@ -9,7 +9,7 @@ describe("hash a branch", function () {
     const head = "9200b436014550faacc3cc31bf9fb55c2105e01a"
     const remoteURL = "https://github.com/turbo-src/turbo-src"
     const remoteHashID = crypto.SHA256(remoteURL).toString(crypto.enc.Hex)
-    const resHashBranch = await getDefaultHashBranch(remoteHashID/*, remoteURL, branch, head*/)
+    const resHashBranch = await getDefaultHashBranch(remoteHashID, remoteURL/*, branch, head*/)
 
     assert.equal(
     //assert.deepEqual(

@@ -9,7 +9,7 @@ const port =
 var root = {
   getDefaultHashBranch: async (
     repoID,
-    //remote_url,
+    remoteURL,
     //branch,
     //head
   ) => {
@@ -17,7 +17,7 @@ var root = {
       .post(`${port}/graphql`)
       .send({
         //query: `{ getDefaultHashBranch(repo_id: "${repo_id}", remote_url: "${remote_url}", branch: "${branch}", head: "${head}") }`,
-        query: `{ getDefaultHashBranch(repoID: "${repoID}") }`,
+        query: `{ getDefaultHashBranch(repoID: "${repoID}", remoteURL: "${remoteURL}") }`,
       })
       .set("accept", "json")
       const json = JSON.parse(res.text);

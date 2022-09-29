@@ -22,7 +22,7 @@ var schema = buildSchema(`
     createIssue(repo: String, issue_id: String, tsrc_id: String): String,
     getIssueID(repo: String, tsrc_id: String,): String,
     getTsrcID(repo: String, issue_id: String): String,
-    getDefaultHashBranch(repoID: String): String,
+    getDefaultHashBranch(repoID: String, remoteURL: String): String,
   }
 `);
 
@@ -31,7 +31,7 @@ var root = {
   getDefaultHashBranch: async (args) => {
     return await getDefaultHashBranch(
       args.repoID,
-      //args.remote_url,
+      args.remoteURL,
       //args.branch,
       //args.head
     );
