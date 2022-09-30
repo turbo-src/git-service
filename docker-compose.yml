@@ -3,6 +3,7 @@ version: "3.0"
 services:
   service:
     image: git-service:latest
+    restart: always
     depends_on:
       - db
     ports:
