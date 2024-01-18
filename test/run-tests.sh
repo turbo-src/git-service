@@ -1,1 +1,1 @@
-npm test test/cloneAndCheck.js test/fetchAndPullNewBranch.js test/switchBranch.js test/hashBranch.js
+npm test test/cloneRepo.js test/fetchAndPullNewBranch.js test/getBranchHead.js test/switchBranch.js test/cleanUp.js
