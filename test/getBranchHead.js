@@ -17,9 +17,9 @@ describe("Add a branch", function () {
 
     res = await getBranchHead(remoteHashID, 'test-git-service')
 
-    assert.equal(
+    assert.deepEqual(
       res,
-      { status: 200, head: 'foo'}
+      { status: 200, head: '636123ee3a2c05e8ed2c4767d306cf5760b8e7f7'}
     )
   });
 });
