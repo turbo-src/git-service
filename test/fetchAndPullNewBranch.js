@@ -6,8 +6,8 @@ const fetchAndPullNewBranch = require("../lib/fetchAndPullNewBranch");
 describe("check a repo", function () {
   //this.timeout(3000);
   it("should confirm a repo exists", async function () {
-    const remoteURL = "https://github.com/turbo-src/turbo-src"
+    const remoteURL = "https://github.com/turbo-src/git-service"
     const remoteHashID = crypto.SHA256(remoteURL).toString(crypto.enc.Hex)
-    await fetchAndPullNewBranch(remoteHashID, "testDev", remoteURL)
+    await fetchAndPullNewBranch(remoteHashID, "tes-git-service", remoteURL)
   });
 });
