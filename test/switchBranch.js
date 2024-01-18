@@ -4,7 +4,7 @@ const switchBranch = require("../lib/switchBranch");
 
 describe("switch branch in a specified repo", function () {
   it("should switch branch in a specified repo", async function () {
-    const remoteURL = "https://github.com/turbo-src/turbo-src"
+    const remoteURL = "https://github.com/turbo-src/git-service"
     const remoteHashID = crypto.SHA256(remoteURL).toString(crypto.enc.Hex)
     const res = await switchBranch(remoteHashID, "master")
     const resNoBranch = await switchBranch(remoteHashID, "nada")
