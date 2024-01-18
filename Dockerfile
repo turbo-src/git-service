@@ -26,6 +26,6 @@ RUN apt-get update && \
 
 COPY . .
 
-EXPOSE 4005/tcp
+EXPOSE 4008/tcp
 
 CMD npm start

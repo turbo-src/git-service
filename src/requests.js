@@ -4,7 +4,7 @@ require("dotenv").config();
 const port =
   process.env.NODE_ENV === "fly"
     ? "https://git-db.fly.dev"
-    : "http://localhost:4005";
+    : "http://localhost:4008";
 
 var root = {
   getDefaultHashBranch: async (
