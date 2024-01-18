@@ -3,11 +3,17 @@ const crypto = require('crypto-js')
 const fetchAndPullNewBranch = require("../lib/fetchAndPullNewBranch");
 
 //const snooze = ms => new Promise(resolve => setTimeout(resolve, ms));
-describe("check a repo", function () {
+describe("Add a branch", function () {
   //this.timeout(3000);
   it("should confirm a repo exists", async function () {
     const remoteURL = "https://github.com/turbo-src/git-service"
     const remoteHashID = crypto.SHA256(remoteURL).toString(crypto.enc.Hex)
-    await fetchAndPullNewBranch(remoteHashID, "tes-git-service", remoteURL)
+
+    assert.equal(
+      remoteHashID,
+      "66806c53dad8d713eef555fb85ef608def74b75b05eb0e54f6f9e38eec3e54b8",
+      "failed to get a reprodicible hash ID"
+    )
+    await fetchAndPullNewBranch(remoteHashID, "test-git-service", remoteURL)
   });
 });
