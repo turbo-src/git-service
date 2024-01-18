@@ -27,6 +27,6 @@ describe("Clean up test environment.", function () {
     }
 
     // Assert that the directory was deleted
-    assert.strictEqual(fs.existsSync(repoPath), true, "Directory was not deleted");
+    assert.strictEqual(fs.existsSync(repoPath), false, "Directory was not deleted");
   });
 });
