@@ -32,7 +32,7 @@ describe("Sets and gets values from json file", function () {
     // Get a value
     const value = store.getValue('testKey');
 
-    assert.equal(value, 'testValueWrong', "Should return the correct value for a given key");
+    assert.equal(value, 'testValue', "Should return the correct value for a given key");
   });
 
   after(function () {
