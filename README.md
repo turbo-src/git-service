@@ -27,4 +27,6 @@ Use gitea as underlying turbosrc pull requests.
 
    `pushBranch(repoID, remoteURL, branch)
 
-6. Delete branch after the pull request is closed or is merged
+6. `createTurboSrcPullRequest` calls gitea api to create/close/merge pr
+
+7. Delete branch after the pull request is closed or is merged
