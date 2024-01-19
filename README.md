@@ -7,8 +7,6 @@ docker-compose exec -it git-service bash test-server/run-tests.sh
 
 ## Strategy
 
-Use gitea as underlying turbosrc pull requests.
-
 1. Client provides remoteURL of pull request branch.
 
 2. Client provides head of pull request branch.
@@ -23,7 +21,7 @@ Use gitea as underlying turbosrc pull requests.
 
 4. Verify branch head with `getBranchHead`.
 
-5. Push branch to turbosrc-gitea's git.
+5. Push branch to remoteURL
 
    `pushBranch(repoID, remoteURL, branch)
 
